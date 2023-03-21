@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Rock Paper and Scissors</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding overflow-hidden">
+  <p>Elige una opcion para jugar, a ver si ganas a la máquina.</p>
+
+  <ion-list class="w-50 mx-auto">
+    <ion-radio-group [allowEmptySelection]="true">
+      <ion-item>
+        <ion-label>Piedra</ion-label>
+        <ion-radio slot="start" id="rps" value="piedra"></ion-radio>
+        <ion-avatar slot="end">
+          <img alt="rock" src="../../../assets/img/rps/piedra.png" />
+        </ion-avatar>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Papel</ion-label>
+        <ion-radio slot="start" id="rps" value="papel"></ion-radio>
+        <ion-avatar slot="end">
+          <img alt="paper" src="../../../assets/img/rps/papel.png" />
+        </ion-avatar>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Tijeras</ion-label>
+        <ion-radio slot="start" id="rps" value="tijeras"></ion-radio>
+        <ion-avatar slot="end">
+          <img alt="scissors" src="../../../assets/img/rps/tijeras.png" />
+        </ion-avatar>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <ion-button (click)="play()" class="w-100 my-3"> Jugar </ion-button>
+
+  <h1>Resultado:</h1>
+  <ion-item  class="ion-padding w-100 mx-auto">
+
+    <ion-avatar slot="end">
+      <img style="width:40px; display: none;"  id="tijeras" alt="tijeras"  src="../../../assets/img/rps/tijeras.png"  />
+      <img style="width:40px; display: none;"  id="papel"   alt="papel"  src="../../../assets/img/rps/papel.png"  />
+      <img style="width:40px; display: none;" id="piedra"  alt="piedra" src="../../../assets/img/rps/piedra.png"  />
+      <img style="width:40px; display: none;" id="machine-hand" src="" >
+    </ion-avatar>
+
+    <p id="result"></p>
+
+  </ion-item>
+</ion-content>
