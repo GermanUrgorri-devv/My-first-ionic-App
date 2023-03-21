@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-rock-paper-scissors',
@@ -12,7 +13,7 @@ export class RockPaperScissorsPage implements OnInit {
   private papel!: HTMLElement;
   private tijeras!: HTMLElement;
 
-  constructor() { }
+  constructor(private alertController: AlertController) { }
 
   ngAfterViewInit() {
     this.piedra = document.getElementById('piedra')!;
@@ -25,9 +26,6 @@ export class RockPaperScissorsPage implements OnInit {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-
-
-
   public async play() {
 
     const ionRadioGroup = document.querySelector('ion-radio-group');
@@ -35,8 +33,9 @@ export class RockPaperScissorsPage implements OnInit {
     let result = '';
     const machineHand = document.getElementById('machine-hand') as HTMLImageElement;
         
-
+    
     if (player && machineHand) {
+      
 
       const resultElement = document.getElementById('result');
       const machine = this.options[Math.floor(Math.random() * this.options.length)];//opcion de la maquina
@@ -61,7 +60,7 @@ export class RockPaperScissorsPage implements OnInit {
       }
 
       if (resultElement) {
-        resultElement.innerHTML = 'La maquina escogió: ';
+        resultElement.innerHTML = 'La maquina escogió...';
 
         // Esperar 5 segundos antes de mostrar el resultado completo
         if (this.piedra && this.papel && this.tijeras)
@@ -80,9 +79,6 @@ export class RockPaperScissorsPage implements OnInit {
 
         await this.esperar(300);
 
-        
-
-          
 
           if (machine === 'piedra') {
 
@@ -100,6 +96,13 @@ export class RockPaperScissorsPage implements OnInit {
         machineHand.style.display = 'block';
         resultElement.innerHTML = 'La maquina escogió ' + machine + ', ' + result;
       }
+    } else{
+      const alert = await this.alertController.create({
+        header: 'Por favor, escoge una opcion antes de jugar.',  
+        buttons: ['OK'],
+      });
+  
+      await alert.present();
     }
   }
 
