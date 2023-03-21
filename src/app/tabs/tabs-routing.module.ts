@@ -19,6 +19,10 @@ const routes: Routes = [
         path: 'rock-paper-scissors',
         loadChildren: () => import('../pages/rock-paper-scissors/rock-paper-scissors.module').then( m => m.RockPaperScissorsPageModule)
       },
+      {
+        path: 'login',
+        loadChildren: () => import('../pages/login/login.module').then( m => m.LoginPageModule)
+      }
 
 
     ]

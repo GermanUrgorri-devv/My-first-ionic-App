@@ -4,7 +4,7 @@ import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-rock-paper-scissors',
   templateUrl: './rock-paper-scissors.page.html',
-  styleUrls: ['./rock-paper-scissors.page.scss'],
+  styleUrls: [ './rock-paper-scissors.page.scss'],
 })
 export class RockPaperScissorsPage implements OnInit {
 
