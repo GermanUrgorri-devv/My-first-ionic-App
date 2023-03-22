@@ -22,6 +22,14 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'registrer',
+    loadChildren: () => import('./pages/registrer/registrer.module').then( m => m.RegistrerPageModule)
+  },
+  {
+    path: 'api',
+    loadChildren: () => import('./pages/api/api.module').then( m => m.ApiPageModule)
   }
 ];
 @NgModule({

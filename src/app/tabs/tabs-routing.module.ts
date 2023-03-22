@@ -14,14 +14,18 @@ const routes: Routes = [
       {
         path: 'photos',
         loadChildren: () => import('../pages/photos/photos.module').then(m => m.PhotosPageModule)
-      },      
+      },
       {
         path: 'rock-paper-scissors',
-        loadChildren: () => import('../pages/rock-paper-scissors/rock-paper-scissors.module').then( m => m.RockPaperScissorsPageModule)
+        loadChildren: () => import('../pages/rock-paper-scissors/rock-paper-scissors.module').then(m => m.RockPaperScissorsPageModule)
       },
       {
         path: 'login',
-        loadChildren: () => import('../pages/login/login.module').then( m => m.LoginPageModule)
+        loadChildren: () => import('../pages/login/login.module').then(m => m.LoginPageModule)
+      },
+      {
+        path: 'api',
+        loadChildren: () => import('../pages/api/api.module').then(m => m.ApiPageModule)
       }
 
 
@@ -37,4 +41,4 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }
