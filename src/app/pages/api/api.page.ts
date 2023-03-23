@@ -46,7 +46,7 @@ export class ApiPage implements OnInit {
 
 
               let card = `
-              <ion-content id="content">
+             <ion-col size="12"  size-sm="5" size-md="4" size-lg="3">
               <ion-card>
                 <img alt="Silhouette of mountains" src="`+ console.image_background +`" />
                 <ion-card-header>
@@ -58,6 +58,7 @@ export class ApiPage implements OnInit {
                  `+games+`
                 </ion-card-content>
               </ion-card>
+            </ion-col>
               `
 
 
