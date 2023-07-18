@@ -26,22 +26,16 @@ export class ApiPage implements OnInit {
       .then(response => response.json())
       .then(consoles => {
 
-
-
         console.log(consoles);
-
         if (Array.isArray(consoles.results)) {
           consoles.results.forEach((console: any) => {
 
-            
             if (console) {
 
               let games = "";
               console.games.forEach((game: any) => {
                 games += '<li>'+game.name+'</li>' 
               })
-
-
 
               let card = `
              <ion-col size="12"  size-sm="5" size-md="4" size-lg="3">
@@ -58,17 +52,12 @@ export class ApiPage implements OnInit {
               </ion-card>
             </ion-col>
               `
-
-
               if (this.content) {
                 this.content.innerHTML += card;
-              }
-              
-              
+              }          
             }
           });
         }
-
 
       })
       .catch(error => {

@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>GitHubSearch</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="center">
+    <h1>Search your own Github! </h1>
+    <div class="perfil col-md-12">
+      <form>
+        <div class="input-group">
+          <input class="form-control" type="text" name="username" [(ngModel)]="username" placeholder="Entrar a Github">
+          <button class="btn btn-outline-info d-flex align-items-center" (click)="searchUser()" type="button">
+            <ion-icon size="large" name="search-circle"></ion-icon>
+            <div  class="d-flex align-items-center justify-content-center ms-2">
+              Search
+            </div>
+          </button>
+
+        </div>
+      </form>
+    </div>
+
+
+
+    <div id="" *ngIf="user" class="perfil card mb-3 text-white bg-dark overflow-hidden">
+
+      <div class="row g-0">
+        <div class="col-md-4 d-flex align-items-center justify-content-center p-3">
+          <img src="{{user.avatar_url}}" class="img-fluid rounded-circle " alt="...">
+        </div>
+        <div class="col-md-8 ">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <h4 class="card-title">{{user.name}}</h4>
+              <a class="btn btn-outline-info w-50  d-flex align-items-center justify-content-center" href="{{user.html_url}}"><strong>Ver perfil</strong> </a>
+            </div>
+            <div>
+              <div class="m-2 d-flex justify-content-around">
+                <strong class="badge bg-primary">{{ user.public_repos }} Repos públicos</strong>
+                <strong class="badge bg-success">{{ user.public_gists }} Gists públicos</strong>
+                <strong class="badge bg-info text-black">{{ user.followers }} Seguidores</strong>
+                <strong class="badge bg-warning">{{ user.following }} Siguiendo</strong>
+              </div>
+              <ul class="list-group">
+                <li class="list-group-item"><strong>Nombre de perfil: </strong>{{ user.login }}</li>
+                <li class="list-group-item"><strong>Localización: </strong>{{ user.location }}</li>
+                <li class="list-group-item"><strong>Correo electrónico: </strong>{{ user.email }}</li>
+                <li class="list-group-item"><strong>Blog: </strong>{{ user.blog }}</li>
+                <li class="list-group-item"><strong>Miembro desde: </strong>{{ user.created_at | date }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-5">
+        <div>
+          <h3>Repositorios</h3>
+        </div>
+        <hr>
+        <div>
+          <div *ngFor="let repo of repos">
+            <div class="row">
+              <div class="col-md-9">
+                <h4><a class="btn btn-outline-info " href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a></h4>
+                <p>{{ repo.description }}</p>
+              </div>
+              <div class="m-2 d-flex justify-content-around">
+                <strong class="badge bg-primary">{{ repo.watchers }} Watchers</strong>
+                <strong class="badge bg-success">{{ repo.forks }} Forks</strong>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </ion-grid>
+</ion-content>

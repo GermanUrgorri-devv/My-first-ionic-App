@@ -30,7 +30,12 @@ const routes: Routes = [
   {
     path: 'api',
     loadChildren: () => import('./pages/api/api.module').then( m => m.ApiPageModule)
+  },
+  {
+    path: 'git-hub-search',
+    loadChildren: () => import('./pages/git-hub-search/git-hub-search.module').then( m => m.GitHubSearchPageModule)
   }
+
 ];
 @NgModule({
   imports: [
